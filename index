@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>攻略補助記録</title>
+
+<style>
+  body {
+    font-family: "Hiragino Mincho ProN", "游明朝", serif;
+    background: #f4f4f4;
+    color: #222;
+    margin: 0;
+    padding: 2em 1em;
+    line-height: 1.9;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 1.6em;
+    margin-bottom: 2em;
+    letter-spacing: 0.1em;
+  }
+
+  .step {
+    background: #fff;
+    border: 1px solid #ccc;
+    margin-bottom: 1.5em;
+  }
+
+  .step-title {
+    padding: 1em;
+    cursor: pointer;
+    font-weight: bold;
+    background: #eee;
+  }
+
+  .step-content {
+    display: none;
+    padding: 1.2em;
+  }
+
+  .hint {
+    margin: 1em 0;
+    padding-left: 1em;
+    border-left: 3px solid #999;
+  }
+
+  .answer {
+    margin-top: 1em;
+    padding: 1em;
+    background: #f9f9f9;
+    border: 1px dashed #aaa;
+  }
+
+  button {
+    background: none;
+    border: none;
+    color: #003366;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 0.5em;
+    font-size: 0.95em;
+  }
+
+  button:hover {
+    opacity: 0.7;
+  }
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h1>進行補助記録</h1>
+
+<!-- STEP 01 -->
+<div class="step">
+  <div class="step-title">01｜何をしたらいいかわからない</div>
+
+  <div class="step-content">
+    <div class="hint">
+      <strong>第一ヒント</strong><br>
+      Liminal Spaceの報告書集に、違和感はありませんでしたか？
+    </div>
+
+    <button onclick="showNext(this)">第二ヒントを見る</button>
+
+    <div class="hint" style="display:none;">
+      <strong>第二ヒント</strong><br>
+      No.67が落丁しています。不具合があったときはどうしますか？
+    </div>
+
+    <button onclick="showNext(this)">答えを見る</button>
+
+    <div class="answer" style="display:none;">
+      QRコード、もしくはリンクから出版社のHPに飛び、  
+      「お問い合わせ」フォームから連絡してみましょう。
+    </div>
+  </div>
+</div>
+
+<!-- STEP 02 -->
+<div class="step">
+  <div class="step-title">02｜画像を見た</div>
+
+  <div class="step-content">
+    <div class="hint">
+      <strong>第一ヒント</strong><br>
+      落丁していたページが見られました。新しい情報はありますか？
+    </div>
+
+    <button onclick="showNext(this)">第二ヒントを見る</button>
+
+    <div class="hint" style="display:none;">
+      <strong>第二ヒント</strong><br>
+      どうやらブログを書いていたそうです。
+    </div>
+
+    <button onclick="showNext(this)">答えを見る</button>
+
+    <div class="answer" style="display:none;">
+      「杉輿犀」と検索してみましょう。  
+      見つからない場合はこちら：  
+      <br>
+      <a href="https://eniwdnaoztam.hatenablog.com/" target="_blank">
+        https://eniwdnaoztam.hatenablog.com/
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- STEP 03 -->
+<div class="step">
+  <div class="step-title">03｜ブログを見た</div>
+
+  <div class="step-content">
+    <div class="hint">
+      <strong>第一ヒント</strong><br>
+      からあげクンの誕生日はいつでしょうか？
+    </div>
+
+    <button onclick="showNext(this)">第二ヒントを見る</button>
+
+    <div class="hint" style="display:none;">
+      <strong>第二ヒント</strong><br>
+      同じ誕生日の人物を、どこかで見ませんでしたか？
+    </div>
+
+    <button onclick="showNext(this)">答えを見る</button>
+
+    <div class="answer" style="display:none;">
+      内田玲央は、からあげクンと同じ <strong>4月15日</strong> 生まれです。<br>
+      彼が関わった新案件は『LIMINAL SPACE 100』です。<br>
+      奥付の編集者欄を見ると「桐須瑛人」と書かれています。<br>
+      検索フォームにその名前を入力してみましょう。
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+  // 見出しクリックで開閉
+  document.querySelectorAll('.step-title').forEach(title => {
+    title.addEventListener('click', () => {
+      const content = title.nextElementSibling;
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    });
+  });
+
+  // 次の要素を表示
+  function showNext(button) {
+    const next = button.nextElementSibling;
+    if (next) {
+      next.style.display = 'block';
+      button.style.display = 'none';
+    }
+  }
+</script>
+
+</body>
+</html>
